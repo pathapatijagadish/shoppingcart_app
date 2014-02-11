@@ -1,0 +1,18 @@
+<%= form_tag user_login_path do %>
+<table>
+	<tr>
+		<h1>LogIn</h1>
+	</tr>
+	<tr>
+		<td><%= label_tag :email%></td>
+		<td><%= text_field_tag :email %></td>
+	</tr>
+	<tr>
+		<td><%= label_tag :password%></td>
+		<td><%= password_field_tag :password %></td>
+	</tr>
+	<tr>
+		<td><%= submit_tag "Login"%></td>
+	</tr>
+</table>
+<%end%>

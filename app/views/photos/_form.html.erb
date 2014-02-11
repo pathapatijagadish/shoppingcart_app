@@ -1,0 +1,15 @@
+<%= form_for(@photo,:html=>{ :multipart => true }) do |f| %>
+<% if @photo.errors.any? %>
+	<div>
+		<h3><%= pluralize(@photo.errors.count,"error")%> occured </h3>
+		<ul>
+			<% @photo.errors.full_messages.each do |msg| %>
+				<li><%= msg%></li>
+			<%end%>
+		</ul>
+	</div>
+<%end%>
+<p><%= f.label :product_id%><%= f.select :product_id,options_for_select(Product.all.map{|x| [x.name,x.id]}) %></p>
+<p><%= f.label :image,"Upload File"%>&nbsp<%= f.file_field :image%></p>
+<p><%= f.submit @photo.new_record? ? 'create' : 'update' %></p>
+<%end%>

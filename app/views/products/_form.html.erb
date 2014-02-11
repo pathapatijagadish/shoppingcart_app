@@ -1,0 +1,20 @@
+<%= form_for(@product) do |f| %>
+<% if @product.errors.any? %>
+	<div>
+		<h3><%= pluralize(@product.errors.count,"error")%> occured </h3>
+		<ul>
+			<% @product.errors.full_messages.each do |msg| %>
+				<li><%= msg%></li>
+			<%end%>
+		</ul>
+	</div>@user.categories
+<%end%>
+<%= f.hidden_field :user_id%>
+<p><%= f.label :category_id%><%= f.select :category_id,options_for_select(@user.categories.all.map{|x| [x.name,x.id]}) %></p>
+<p><%= f.label :name%><%=f.text_field :name%></p>
+<p><%= f.label :price%><%=f.text_field :price%></p>
+<p><%= f.label :discount%><%=f.text_field :discount%></p>
+<p><%= f.label :size%><%=f.text_field :size%></p>
+<p><%= f.label :color%><%=f.text_field :color%></p>
+<p><%= f.submit @product.new_record? ? 'create' : 'update' %></p>
+<%end%>

@@ -1,0 +1,6 @@
+<% if @photo %>
+<p><%= image_tag @photo.image.url() %></p>
+<% else %>
+<p>record not found</p>
+<%end%>
+<%= link_to "photos list", photos_path%>

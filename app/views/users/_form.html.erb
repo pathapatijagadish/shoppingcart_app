@@ -1,0 +1,21 @@
+<%= form_for(@user,:html => { :multipart => true }) do |f| %>
+<% if @user.errors.any? %>
+<div>
+	<h3><%= pluralize(@user.errors.count, "error") %> occured </h3>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li><%=msg%></li>
+		<%end%>
+	</ul>
+</div>
+<%end%>
+<p><%= f.label :name%><%=f.text_field :name%></p>
+<p><%= f.label :password%><%=f.password_field :password%></p>
+<p><%= f.label :password_confirmation%><%=f.password_field :password_confirmation%></p>
+<p><%= f.label :email %><%= f.email_field :email %></p>
+<p><%= f.label :gender%><%=f.radio_button :gender,"male"%>Male
+						<%=f.radio_button :gender,"female"%></p>
+<p><%= f.label :avatar,"Upload File"%>&nbsp<%= f.file_field :avatar%></p>
+<p><%= f.label :mobile_number%><%=f.telephone_field :mobile_number%></p>
+<p><%= f.submit @user.new_record? ? 'create' : 'update'%></p>
+<% end %>

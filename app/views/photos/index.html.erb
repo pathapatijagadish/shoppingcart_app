@@ -1,0 +1,19 @@
+<h1>photos List</h1>
+<% if @photos.present? %>
+<table>
+	<tr>
+		<th>photo</th>
+		
+	</tr>
+	<% @photos.each do |photo| %>
+	<tr>
+		<td><%= link_to image_tag(photo.image.url(:thumb)),photo_path(photo) %> </td> 
+		<td><%= link_to "Delete",photo_path(photo),:confirm=>"Are you sure",:method=>:delete %></td>
+	</tr>
+	<%end%>
+</table>
+<%else%>
+<p>photos are not present </p>
+</br>
+<%end%>
+<%= link_to "New Photo",new_photo_path%>

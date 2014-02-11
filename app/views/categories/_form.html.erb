@@ -1,0 +1,13 @@
+<%= form_for(@category) do |f| %>
+<% if @category.errors.any? %>
+<h3><%= pluralize(@category.errors.count,"error")%>occured</h3>
+	<ul>
+		<% @category.errors.full_messages.each do |msg|%>
+		<li><%=msg%></li>
+		<%end%>
+	</ul>
+<%end%>
+<%= f.hidden_field :user_id%>
+<p><%= f.label :name,"category Name"%><%=f.text_field :name%></p>
+<p><%= f.submit @category.new_record? ? 'create' : 'update' %></p>
+<%end%>

@@ -1,0 +1,11 @@
+<h1>Product Details</h1>
+<% if @product %>
+	<p>Name:<%= @product.name%></p>
+	<p>Price:<%= @product.price%></p>
+	<p>Discount:<%= @product.discount%></p>
+	<p>Size:<%= @product.size%></p>
+	<p>Color:<%= @product.color%></p>
+<%else%>
+	<p>Record Not Found%></p>
+<%end%>
+<%=link_to "Products List",products_path%>

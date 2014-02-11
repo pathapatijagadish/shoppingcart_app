@@ -1,0 +1,26 @@
+<h1>Products List</h1>
+<table border="1">
+	<tr>
+		<td>Name</td>
+		<td>Price</td>
+		<td>Discount</td>
+		<td>Size</td>
+		<td>Color</td>
+		<td>Edit</td>
+		<td>Delet</td>
+	</tr>
+	<% @products.each do |product| %>
+	<tr>
+		<td><%= link_to product.name,product_path(product)%></td>
+		<td><%= product.price %></td>
+		<td><%= product.discount %></td>
+		<td><%= product.size %></td>
+		<td><%= product.color %></td>
+		<td><%= link_to "Edit",edit_product_path(product) %></td>
+		<td><%= link_to "Delete",product_path(product),:confirm=>"Are you sure",:method=>:delete %></td>
+	</tr>
+	<%end%>
+</table>
+</br>
+<%= link_to "New Product",new_product_path%>
+
